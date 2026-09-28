@@ -1,0 +1,141 @@
+html, body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+body
+{
+    background-color: tan;
+}
+button
+{
+    border: none;
+    background-color: transparent;
+}
+
+#game-title
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+    width: 100%;
+    height: 50px;
+
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    background-color: olive;
+    border-bottom: solid;
+}
+#player-choice, #computer-choice
+{
+    margin-left: 1rem;
+    text-align: left;
+}
+#container
+{
+    display: flex;
+    flex-direction: column;
+}
+#win-count
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+#player-wins, #computer-wins
+{   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 8rem;
+    height: 4rem;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid;
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+}
+#player-wins
+{
+    border-color: aqua;
+}
+#computer-wins
+{
+    border-color: red;
+}
+#computer-wins, #player-wins
+{
+    
+}
+
+#win-text
+{
+    width: 100%;
+    height: 2rem;
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+#win-underline
+{
+    display: flex;
+    flex: 1;
+    margin: 20px 10%;
+    border: 1.5px solid;
+}
+
+.button-container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.player-button
+{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    color: transparent;
+    background-color: black;
+    border-radius: 50px;
+    border: 4px double white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#rock-choice
+{
+    background-image: url(Assets/Rock.png);
+}
+#paper-choice
+{
+    background-size: 75px;
+    background-image: url(Assets/Paper.png);
+}
+#scissors-choice
+{
+    background-image: url(Assets/Scissors.png.webp);
+}
+.player-button:active
+{
+    background-color: grey;
+}
