@@ -1,0 +1,32 @@
+body, html
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: darkcyan;
+}
+#title
+{
+    color: white;
+}
+#container
+{
+    width: 75%;
+    height: 60%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 7px 7px 20px -10px black;
+}
+#test-button::active
+{
+    color: blue;
+}
