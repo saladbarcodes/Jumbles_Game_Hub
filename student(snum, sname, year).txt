@@ -1,0 +1,106 @@
+student(snum, sname, year)
+professor(pnum, pname, office, dept)
+course(cnum, cname)
+class(cnum, sem, section, instructor)
+schedule(cnum, sem, section, day, time, room)
+enrollment(snum, cnum, sem, section)
+
+Find the student ids and names of students who have classes on Tuesday and Thursday in the 'F26' semester.
+
+select S.snum, S.sname
+from student S, schedule sch, enrollment E
+where S.snum = E.snum
+and E.cnum = sch.cnum
+and sch.sem = 'F26'
+and sch.day = 'Tuesday'
+
+intersect
+
+select S.snum, S.sname
+from student S, schedule sch, enrollment E
+where S.snum = E.snum
+and E.cnum = sch.cnum
+and sch.sem = 'F26'
+and sch.day = 'Thursday'
+
+*Make sure to match everything because a course can have multiple sections
+
+select C.cnum, C.cname
+from class C, enrollment E
+where C.cnum = E.cnum and C.sem = E.sem and C.section = E.section
+group by C.cnum, C.cname
+having count(*) = 
+(
+    select max(num_students)
+    from enrollment E
+)
+order by C.cnum
+
+select C.cnum, C.cname
+from course C, enrollment E
+where E.cnum = C.cnum
+group by C.cnum, C.cname;
+having count(distinct E.snum) = 
+(
+    select max(num_students)
+    from 
+    (
+        select E.cnum, count(distinct E.snum) as num_students
+        from enrollment E
+        group by E.cnum
+    ) count
+)
+order by C.cnum
+
+select E.cnum, E.sem, count(distinct E.snum) as num_students
+from enrollment E
+group by E.cnum, E.sem
+having count(distinct E.snum) > 140
+order by E.sem, E.cnum;
+
+select P.pnum, P.pname, count(distinct C.cnum)
+from professor P, class C
+where C.instructor = P.pnum
+group by P.pnum, P.pname
+having count(distinct C.cnum) = 
+(
+    select max(num_courses)
+    from
+    (
+        select C.instructor, count(distinct C.cnum) as num_courses
+        from class C2
+        group by C.instructor
+    ) count
+)
+order by P.pnum;
+
+select E.sem, E.cnum, count(distinct E.snum)
+from enrollment E
+group by E.sem, E.cnum
+having count (distinct E.snum) = 
+(
+    select max(num_students)
+    from
+    (
+        select E2.sem, E2.cnum, count(distinct E.snum) as num_students
+        from enrollment E2
+        where E2.sem = E.sem
+        group by E2.sem, E2.cnum
+    ) count
+);
+
+select P.pnum, P.pname, C.cnum, count(distinct E.snum)
+from professor P, class C, enrollment E
+where P.pnum = C.instructor and C.cnum = E.cnum and C.sem = E.sem and C.section = E.section
+group by P.pnum, P.pname, C.cnum
+having count(distinct E.snum) = 
+(
+    select max(num_students)
+    from 
+    (
+        select P.pnum, C.cnum, count(distinct E.snum) as num_students
+        from professor P2, class C2, enrollment E2
+        where P.pnum = C.instructor and C.cnum = E.cnum and C.sem = E.sem and C.section = E.section
+        group by P.pnum, C.cnum
+    ) count
+);
