@@ -1,6 +1,6 @@
 const body = document.body;
 
-const github = "/games/"
+const github = "games/"
 
 const gamesList = 
 {
