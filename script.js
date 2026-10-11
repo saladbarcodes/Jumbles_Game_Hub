@@ -1,14 +1,13 @@
 const body = document.body;
 
-const github = "/Jumbles_Game_Hub/games/"
-const rps = "Rock_Paper_Scissors";
-const rpg = "RPG";
-const ttt = "Tic-Tac-Toe";
+const github = "/games/"
 
-// const gamesList = 
-// [
-//     rps
-// ];
+const gamesList = 
+{
+    rps: "Rock_Paper_Scissors",
+    rpg: "RPG",
+    ttt: "Tic-Tac-Toe"
+};
 
 function redirectToGame(directory)
 {
@@ -16,9 +15,18 @@ function redirectToGame(directory)
 }
 
 const rockPaperScissors = document.getElementById("rock-paper-scissors");
+const ticTacToe = document.getElementById("tic-tac-toe");
 
 rockPaperScissors.addEventListener("click", () => 
 {
-    redirectToGame(rps);
+    redirectToGame(gamesList.rps);
+});
+// dungeonGame.addEventListener("click", () =>
+// {
+//     redirectToGame(gamesList.ttt);
+// });
+ticTacToe.addEventListener("click", () =>
+{
+    redirectToGame(gamesList.ttt);
 });
 
