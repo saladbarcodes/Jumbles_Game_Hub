@@ -1,8 +1,9 @@
 const body = document.body;
 
-const rps = "/games/Rock_Paper_Scissors";
-const mm = "/games/RPG";
-const ttt = "/games/Tic-Tac-Toe";
+const github = "/Jumbles_Game_Hub/games/"
+const rps = "Rock_Paper_Scissors";
+const rpg = "RPG";
+const ttt = "Tic-Tac-Toe";
 
 // const gamesList = 
 // [
@@ -11,7 +12,7 @@ const ttt = "/games/Tic-Tac-Toe";
 
 function redirectToGame(directory)
 {
-    window.location.href = directory + "/index.html";
+    window.location.href = github + directory + "/index.html";
 }
 
 const rockPaperScissors = document.getElementById("rock-paper-scissors");
