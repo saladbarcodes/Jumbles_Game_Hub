@@ -1,7 +1,7 @@
 const body = document.body;
 
 const rps = "/games/Rock_Paper_Scissors";
-const mm = "/games/Memory_Match";
+const mm = "/games/RPG";
 const ttt = "/games/Tic-Tac-Toe";
 
 // const gamesList = 
@@ -20,3 +20,4 @@ rockPaperScissors.addEventListener("click", () =>
 {
     redirectToGame(rps);
 });
+
