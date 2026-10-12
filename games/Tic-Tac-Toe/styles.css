@@ -18,6 +18,25 @@ body
     justify-content: center;
     align-items: center;
 }
+#win-screen
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: fit-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-height: 50vh;
+    height: 4rem;
+    background-color: white;
+    border: solid black;
+    text-wrap: nowrap;
+    border-radius: 20px;
+    font-size: 2rem;
+    font-weight: bolder;
+}
 #game-area
 {
     width: 75%;
@@ -50,4 +69,22 @@ body
 #pos7, #pos8, #pos9
 {
     border-bottom: none;
+}
+.player-one
+{
+    background-image: url(X.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+.player-two
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(O.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90px;
 }
